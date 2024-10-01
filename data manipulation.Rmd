@@ -80,6 +80,20 @@ filter(litters_df,gd0_weight >= 22,gd_of_birth == 20 )
 filter(litters_df, group %in% c("Con7", "Mod8"))
 ```
 
+# Mutate
+
+## creates a new variable  measuring the difference between gd18_weight and gd0_weight and modifies the existing group variable(make lower case).
+```{r}
+mutate(litters_df,
+  wt_gain = gd18_weight - gd0_weight,
+  group = str_to_lower(group)
+)
+```
+
+
+
+
+
 
 
 
