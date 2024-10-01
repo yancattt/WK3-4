@@ -5,4 +5,18 @@ date: "2024-10-01"
 output: github_document
 ---
 
+```{r}
+library(tidyverse)
+```
+# tidyverse is a collection of packages
+
+# load FAS litters data and clean names
+```{r}
+
+litters_df = 
+    read_csv("data/FAS_litters.csv", na = c("NA", ".", ""))
+litters_df = 
+    janitor::clean_names(litters_df)
+```
+
 
