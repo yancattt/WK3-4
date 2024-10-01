@@ -43,12 +43,12 @@ select(litters_df, GROUP = group, LiTtEr_NuMbEr = litter_number)
 rename(litters_df, GROUP = group, LiTtEr_NuMbEr = litter_number)
 ```
 
-## read about all of them, use start_with(),ends_with, contains()
+### read about all of them, use start_with(),ends_with, contains()
 ```{r}
 select(litters_df, starts_with("gd"))
 ```
 
-## reorganizing columns without discarding anything
+### reorganizing columns without discarding anything
 ```{r}
 select(litters_df, litter_number, pups_survive, everything())
 ```
@@ -56,8 +56,29 @@ select(litters_df, litter_number, pups_survive, everything())
 ```{r}
 relocate(litters_df, litter_number, pups_survive)
 ```
+# Filter
+```{r}
+filter(litters_df,gd0_weight < 22)
+```
 
+```{r}
+filter(litters_df,gd0_weight == 20)
+```
 
+## not equal to 20
+```{r}
+filter(litters_df,!gd0_weight == 20)
+```
+
+## run both
+```{r}
+filter(litters_df,gd0_weight >= 22,gd_of_birth == 20 )
+```
+## either option
+
+```{r}
+filter(litters_df, group %in% c("Con7", "Mod8"))
+```
 
 
 
