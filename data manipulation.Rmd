@@ -19,4 +19,48 @@ litters_df =
     janitor::clean_names(litters_df)
 ```
 
+## Select
+choose some columns and not others
+```{r}
+select(litters_df, group, litter_number, gd0_weight, pups_born_alive)
+```
+### specify a range
+```{r}
+select(litters_df, group:gd_of_birth)
+```
+
+### remove variable
+```{r}
+select(litters_df, -pups_survive)
+```
+
+### rename variables
+```{r}
+select(litters_df, GROUP = group, LiTtEr_NuMbEr = litter_number)
+```
+### rename all
+```{r}
+rename(litters_df, GROUP = group, LiTtEr_NuMbEr = litter_number)
+```
+
+## read about all of them, use start_with(),ends_with, contains()
+```{r}
+select(litters_df, starts_with("gd"))
+```
+
+## reorganizing columns without discarding anything
+```{r}
+select(litters_df, litter_number, pups_survive, everything())
+```
+### similar with relocate: to the beginning
+```{r}
+relocate(litters_df, litter_number, pups_survive)
+```
+
+
+
+
+
+
+
 
